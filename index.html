@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <script type="module" src="/src/main.ts"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">Weather Forecasts App</h1>
+        <button id="button-modal" class="button is-primary">
+          Add Forecast
+        </button>
+
+        <!-- Search bar and button -->
+        <div id="modal" class="modal">
+          <div class="modal-background"></div>
+
+          <div class="modal-content">
+            <div class="box">
+              <h2 class="title">Search for a forecast</h2>
+              <p>Enter a city name, ZIP code, or coordinates.</p>
+              <p class="mb-1">
+                Use <a href="" target="_blank">ISO 3166 country codes</a>
+              </p>
+              <p class="mb-3">
+                Examples (without quotes and spaces): <br />
+                by city name: "London" <br />
+                by ZIP code: "10001" <br />
+                by coordinates: "40.7128,-74.0060"
+              </p>
+
+              <form id="search-form-modal" class="field is-flex">
+                <div class="control has-icons-left mr-2">
+                  <input
+                    class="input"
+                    type="text"
+                    placeholder="Enter city name, ZIP code, or coordinates"
+                  />
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-search"></i>
+                  </span>
+                </div>
+                <select class="mr-5">
+                  <option disabled>Search by:</option>
+                  <option value="name">City name</option>
+                  <option value="zip">ZIP code</option>
+                  <option value="coords">Coordinates</option>
+                </select>
+                <button id="search-button" class="button is-primary">
+                  Search
+                </button>
+              </form>
+              <ul id="search-results-modal" class="menu-list"></ul>
+            </div>
+          </div>
+
+          <button class="modal-close is-large" aria-label="close"></button>
+        </div>
+
+        <!-- Weather Data Table -->
+        <table
+          class="table is-bordered is-striped is-hoverable is-fullwidth mt-5"
+        >
+          <thead>
+            <tr>
+              <th>City</th>
+              <th>Temperature</th>
+              <th>Humidity</th>
+              <th>Wind Speed</th>
+              <th>Pressure</th>
+              <th>Sunrise</th>
+              <th>Sunset</th>
+              <th>-</th>
+              <th>-</th>
+            </tr>
+          </thead>
+          <tbody id="weather-table-body"></tbody>
+        </table>
+
+        <div id="pagination" class="pagination">
+          <!-- <button class="pagination-previous">Page 1</button>
+          <button class="pagination-next">Page 2</button> -->
+          <!-- <span></span> -->
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
